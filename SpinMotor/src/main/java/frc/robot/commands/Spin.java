@@ -34,7 +34,7 @@ public class Spin extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_motor.setSpeed(m_joystick.getRawAxis(JoystickConstants.kDriveJoystickId)*MotorConstants.kSpeedMultiplier);
+    m_motor.setSpeed(m_joystick.getRawAxis(JoystickConstants.kJoystickAxis)*MotorConstants.kSpeedMultiplier);
     // set speed
   }
 

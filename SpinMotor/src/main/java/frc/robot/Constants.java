@@ -19,7 +19,7 @@ public final class Constants {
   }
 
   public static class JoystickConstants{
-    public static final int kDriveJoystickId = 0; // use first port
+    public static final int kDriveJoystickID = 0; // use first port
     public static final int kJoystickAxis = ":C"; // setting to 0 is fine but check here 
   }
 }
