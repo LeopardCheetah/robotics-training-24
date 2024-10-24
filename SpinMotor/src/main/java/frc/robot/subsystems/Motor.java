@@ -14,6 +14,7 @@ public class Motor extends SubsystemBase {
   /** Creates a new Motor. */
   private final CANSparkMax m_motor = new CANSparkMax(MotorConstants.kMotorID, MotorType.kBrushless);
 
+
   public Motor() {} // do nothing lol
 
   public void setSpeed(double speed){

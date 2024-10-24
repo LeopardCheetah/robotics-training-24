@@ -14,12 +14,14 @@ package frc.robot;
  */
 public final class Constants {
   public static class MotorConstants {
-    public static final int kMotorID = "fix this"; // to change once i get the right number
+    public static final int kMotorID = 8; // to change once i get the right number
     public static final double kSpeedMultiplier = 0.05;
   }
 
   public static class JoystickConstants{
     public static final int kDriveJoystickID = 0; // use first port
-    public static final int kJoystickAxis = ":C"; // setting to 0 is fine but check here 
+    public static final int kJoystickAxis = 1; // right joystick for drive
   }
+
+  int myCoolMotorID = 3;
 }
