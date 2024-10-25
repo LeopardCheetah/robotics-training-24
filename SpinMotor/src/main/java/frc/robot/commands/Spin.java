@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants.JoystickConstants;
@@ -15,11 +16,15 @@ public class Spin extends Command {
   private Motor m_motor;
   private Joystick m_joystick;
 
+  private DigitalInput m_limitSwitch; // make a limit switch
 
-  public Spin(Motor motor, Joystick joystick) {
+
+  public Spin(Motor motor, Joystick joystick, DigitalInput limitSwitch) {
     // Use addRequirements() here to declare subsystem dependencies.
     m_motor = motor;
     m_joystick = joystick;
+
+    m_limitSwitch = limitSwitch;
 
     addRequirements(motor); // we NEED the motor so we include this line to show that we really really need
     // the motor and nothing can else can be taking the motor once we have the motor 
@@ -34,9 +39,15 @@ public class Spin extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    // set speed equal to [joystick pos]*throttle
-    m_motor.setSpeed(m_joystick.getRawAxis(JoystickConstants.kJoystickAxis)*MotorConstants.kSpeedMultiplier);
-    // set speed
+
+    if (m_limitSwitch.get()){
+      // limit switch is tripped
+      m_motor.setSpeed(0);
+    } else {
+      // set speed equal to [joystick pos]*throttle
+      m_motor.setSpeed(m_joystick.getRawAxis(JoystickConstants.kJoystickAxis)*MotorConstants.kSpeedMultiplier);
+    }
+
   }
 
   // Called once the command ends or is interrupted.

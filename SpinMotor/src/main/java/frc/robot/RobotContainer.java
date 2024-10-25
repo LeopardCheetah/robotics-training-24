@@ -5,8 +5,10 @@
 package frc.robot;
 
 import frc.robot.Constants.JoystickConstants;
+import frc.robot.Constants.SensorConstants;
 import frc.robot.commands.Spin;
 import frc.robot.subsystems.Motor;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
@@ -26,8 +28,11 @@ public class RobotContainer {
   private final Joystick m_joystick = new Joystick(JoystickConstants.kDriveJoystickID);
 
 
+  private DigitalInput m_limitSwitch = new DigitalInput(SensorConstants.kLimitSwitchPort);
+
+
   // commands
-  private final Spin m_spin = new Spin(m_motor, m_joystick);
+  private final Spin m_spin = new Spin(m_motor, m_joystick, m_limitSwitch);
 
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */

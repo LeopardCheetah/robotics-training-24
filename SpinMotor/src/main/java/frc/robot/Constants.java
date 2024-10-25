@@ -23,5 +23,11 @@ public final class Constants {
     public static final int kJoystickAxis = 1; // right joystick for drive
   }
 
+
+
+  public static class SensorConstants{
+    public static final int kLimitSwitchPort = 9; // last DIO port
+  }
+
   int myCoolMotorID = 3;
 }
